@@ -2,12 +2,28 @@
   "name": "@nx-root-repro/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "check": "node ./getProjects.js",
+    "test": "tsc"
+  },
   "private": true,
-  "dependencies": {},
   "devDependencies": {
     "@nx/js": "19.2.3",
     "@nx/workspace": "19.2.3",
     "nx": "19.2.3"
+  },
+  "nx": {
+    "tags": [
+      "root"
+    ],
+    "targets": {
+      "test": {
+        "dependsOn": [
+          "build"
+        ]
+      }
+    }
   }
 }
